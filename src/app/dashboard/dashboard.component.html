@@ -1,0 +1,31 @@
+<h2>Your listings</h2>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Image</th>
+        <th scope="col">Address</th>
+        <th scope="col">Size</th>
+        <th scope="col">Price</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let x of service.jobs">
+        <td>
+          <div class="image-cropper">
+            <img src="data:{{x.photoContentType}};base64,{{x.photoData}}"/>
+          </div>
+        </td>
+        <td>{{x.skills}} .</td>
+        <td>{{x.introduction}} </td>
+        <td>{{x.phoneNumber}} </td>
+        <td>{{x.email}} </td>
+        <td>
+            <button routerLink="/edit/{{x.id}}"
+             class="btn btn-sm btn-warning">Edit</button> &nbsp;
+            <button class="btn btn-sm btn-danger" (click)="delete(x.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>

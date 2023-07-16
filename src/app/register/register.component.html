@@ -1,0 +1,29 @@
+<h2>Register to the system</h2>
+<div class="text-light">
+    <div class="mb-3 w-100">
+        <label class="form-label">First name</label>
+        <input type="text" class="form-control" required [(ngModel)]="rm.firstName">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Last name</label>
+        <input type="text" class="form-control" required [(ngModel)]="rm.lastName">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">E-mail</label>
+        <input type="email" class="form-control" required [(ngModel)]="rm.email">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">User name</label>
+        <input type="text" class="form-control" required [(ngModel)]="rm.userName">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" minlength="8" [(ngModel)]="rm.password">
+    </div>
+    <button (click)="register()" class="btn btn-primary">Register</button>
+</div>
+
+<br/>
+<div class="alert alert-danger" role="alert" *ngIf="isError">
+    Register data is invalid
+</div>

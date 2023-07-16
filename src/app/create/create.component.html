@@ -1,0 +1,38 @@
+<h2>Add new listing</h2>
+<div>
+    <div class="mb-3">
+        <label class="form-label">City</label>
+        <input type="number" class="form-control" [(ngModel)]="actual.city">
+    </div>
+    
+    <div class="mb-3">
+        <label class="form-label">Skills</label>
+        <input type="text" class="form-control" [(ngModel)]="actual.skills">
+    </div>
+    
+    <div class="mb-3">
+        <label class="form-label">introduction</label>
+        <input type="text" class="form-control" [(ngModel)]="actual.introduction">
+    </div>
+    
+    <div class="mb-3">
+        <label class="form-label">PhoneNumber</label>
+        <input type="number" class="form-control" [(ngModel)]="actual.phoneNumber">
+    </div>
+    
+    <div class="mb-3">
+        <label class="form-label">E-mail</label>
+        <input type="number" class="form-control" [(ngModel)]="actual.email">
+    </div>
+    
+    <div class="mb-3">
+        <label class="form-label">Picture</label>
+        <input type="file" class="form-control" (change)="upload($event)">
+    </div>
+   
+    <div class="mb-3" *ngIf="actual.photoContentType.length > 1">
+        <img src="data:{{actual.photoContentType}};base64,{{actual.photoData}}" height="300" />
+    </div>
+    
+    <button (click)="add()" class="btn btn-primary">Add listing</button>
+</div>

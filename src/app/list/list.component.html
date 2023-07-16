@@ -1,0 +1,52 @@
+<button class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+    <i class="bi bi-funnel-fill"></i> Filter</button>
+  <br/><br/>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col" *ngFor="let x of filteredJobProfile">
+          <div class="card h-100">
+            <img *ngIf="x.photoContentType != null && x.photoContentType.length > 1"
+            src="data:{{x.photoContentType}};base64,{{x.photoData}}" class="card-img-top" />
+            <div class="card-body">
+              <h5 class="card-title">{{x.city}}</h5>
+              <p class="card-text">
+                <b>Skills: </b>{{x.skills}} <br/>
+                <b>Intorduction: </b>{{x.introduction}} <br/>
+                <b>PhoneNumber: </b>{{x.phoneNumber}} <br/>
+                <b>E-mail: </b>{{x.email}}
+              </p>
+            </div>
+            <div class="card-footer">
+              {{getName(x.ownerId)}}
+            </div>
+          </div>
+        </div>
+  </div>
+  
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasExampleLabel">Filter</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="mb-3">
+        <label class="form-label">City</label>
+        <input type="range" class="form-range" [(ngModel)]="filterCity">
+        <div class="form-text">{{filterCity}}</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Skills</label>
+        <input type="range" class="form-range" [(ngModel)]="filterSkills">
+        <div class="form-text">{{filterSkills}}</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Only listings with pictures</label>
+        <input type="checkbox" class="form-check" [(ngModel)]="filterPicture">
+      </div>
+      <div class="mb-3">
+        <button class="btn btn-primary" (click)="filter()" data-bs-dismiss="offcanvas">Filter</button>
+      </div>
+      <div class="mb-3">
+        <button class="btn btn-danger" (click)="clear()" data-bs-dismiss="offcanvas">Clear Filter</button>
+      </div>
+    </div>
+  </div>

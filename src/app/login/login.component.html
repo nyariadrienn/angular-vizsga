@@ -1,0 +1,17 @@
+<h2>Login to the system</h2>
+<div class="text-light">
+    <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input type="text" class="form-control" [(ngModel)]="lm.username">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" [(ngModel)]="lm.password">
+    </div>
+    <button (click)="login()" class="btn btn-primary">Login</button>
+</div>
+
+<br/>
+<div class="alert alert-danger" role="alert" *ngIf="isError">
+    Invalid username or password
+</div>
